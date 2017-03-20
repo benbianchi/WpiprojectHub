@@ -99,4 +99,10 @@ ENV/
 # Rope project settings
 .ropeproject
 
+# nodeModules
+node_modules/
+
+#bower
+static/bower_components/
+
 # End of https://www.gitignore.io/api/python,django
