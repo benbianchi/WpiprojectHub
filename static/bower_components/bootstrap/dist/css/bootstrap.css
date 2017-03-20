@@ -5863,6 +5863,20 @@ button.close {
   background: transparent;
   border: 0;
 }
+.anchor-right {
+  text-align: right;
+}
+.anchor-center {
+  text-align: center;
+}
+.anchor-left {
+  text-align: left;
+}
+.user-banner {
+  width: auto;
+  height: 60px;
+  background: red;
+}
 .modal-open {
   overflow: hidden;
 }
