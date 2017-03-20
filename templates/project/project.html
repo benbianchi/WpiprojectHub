@@ -1,19 +1,78 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="container">
     <div class="row">
-        <div class="well">
-        <form method="POST" action="/project/">
-        {{ project_form }}
-        {% csrf_token %}
-        
-        <hr>
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
-        
-        </form>
-        
+
+
     </div>
+    <div class="row">
+        <div class="well">
+            {% if project.projectAuthor == None  or project.projectAuthor == request.user%}
+            <form method="POST" action="/project/{{ project.id}}">
+                {{ project_form }} {% csrf_token %}
+
+                <hr>
+
+                <div class="row">
+                    
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+                    {% if project.projectAuthor != None %}
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <a type="" href="/project/{{project.id}}/delete/" class="btn btn-danger">Delete</a>
+                    </div>
+                    {% endif %}
+                    
+                </div>
+                
+
+            </form>
+
+
+
+            {% else %}
+
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+
+            </div>
+
+            <div class="row">
+<h1 style="text-align:center">{{ project.projectName}} </h1>
+<h3 style="text-align:center">{{ project.projectTagLine}}</h3>
+<p><strong>Details:</strong></p>
+<p>{{ project.projectDescription}}</p>
+
+<hr>
+<h4>Required Majors: {{project.projectMajor}}</h4>
+<h4>Required Skills: {{project.projectSkills}} </h4>
+<p>Project Begins: {{project.projectBeginDate}}</p>
+<p>Project Ends: {{project.projectEndDate}}</p>
+<p>Estimated hours per week: {{project.projectDuration}}</p>
+
 </div>
+
+{% endif %}
+
+
+
+</div>
+{% if project.projectAuthor %}
+<div class="well">
+        
+        <h1>Author: <strong>{{project.projectAuthor}}</strong></h1>
+        <hr>
+        {{project.projectAuthor.member.bio}}
+        
+
+    </div>
+    {% endif %}
+</div>
+
+
+    
+</div>
+
 
 {% endblock %}

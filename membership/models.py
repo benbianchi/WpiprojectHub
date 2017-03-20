@@ -29,7 +29,7 @@ class Member(models.Model):
 
 
 class Project(models.Model):
-    projectAuthor = models.OneToOneField(Member,on_delete=models.CASCADE,default=None)
+    projectAuthor = models.ForeignKey('auth.User')
     projectName= models.CharField(max_length=50)
     projectTagLine= models.CharField(max_length=100)
     projectDescription= models.TextField()
@@ -38,7 +38,7 @@ class Project(models.Model):
     projectSkills = models.ManyToManyField(Skill);
 
 
-    projectBeginDate = models.DateField()
-    projectEndDate = models.DateField()
-    projectDuration = models.FloatField()
+    projectBeginDate = models.DateField(null=True)
+    projectEndDate = models.DateField(null=True)
+    projectDuration = models.FloatField(null=True)
 
