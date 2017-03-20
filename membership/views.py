@@ -38,7 +38,6 @@ def viewExistingProject(request,num=None):
                 return lookUpExistingProject(request,num);
         
         if request.method == "POST":
-<<<<<<< HEAD
                 #Process form
                 form = ProjectForm(request.POST)
                 if (form.is_valid()):
@@ -48,25 +47,22 @@ def viewExistingProject(request,num=None):
                         p.save()
                 else:
                         print("\nForm aint valid\n")
-=======
                 handleProjectUpdate(request,num)
-
->>>>>>> 1cd9a9f2f2556b60d37395e7056faf71454802fa
         return HttpResponseRedirect("/project")
 
 def handleProjectUpdate(request,num):
         pj = get_object_or_404(Project, pk=num)
 
-        print "lookup Successful."
+        print("lookup Successful.")
         form = ProjectForm(request.POST)
 
         if (form.is_valid()):
-                print "Form Validation Successful."
+                print("Form Validation Successful.")
                 pj = form.save(commit=False)
                 pj.projectAuthor = request.user
                 pj.save();
         else:
-                print "\nForm aint valid\n"+str(form.errors)
+                print("\nForm aint valid\n"+str(form.errors))
         
 
 def handleProjectOnPost(request):
@@ -79,10 +75,10 @@ def handleProjectOnPost(request):
                 newProject.projectAuthor = request.user        
                 newProject.save();
 
-                print "Successfully Saved"
+                print("Successfully Saved")
 
         else:
-                print "\nForm aint valid\n"+str(form.errors)
+                print("\nForm aint valid\n"+str(form.errors))
 
 
 def lookUpExistingProject(request, num):
