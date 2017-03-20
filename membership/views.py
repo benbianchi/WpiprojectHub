@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-from forms import ProfileForm, ProjectForm
 from django.contrib.auth.decorators import login_required
+
+from .forms import ProfileForm, ProjectForm
 
 def home(request):
         return render(request, "home.html")
@@ -23,12 +24,12 @@ def inspectProject(request):
                 #Process form
                 form = ProjectForm(request.POST)
                 if (form.is_valid()):
-                        print "Created"
+                        print("Created")
                         p = Project()
                         p.author = request.user
                         p.save()
                 else:
-                        print "\nForm aint valid\n"
+                        print("\nForm aint valid\n")
         return HttpResponseRedirect("/project")
 
 

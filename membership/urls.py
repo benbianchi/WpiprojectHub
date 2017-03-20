@@ -1,7 +1,7 @@
 # log/urls.py
 from django.conf.urls import url
 from . import views
-from forms import ProfileForm
+from .forms import ProfileForm
 
 # We are adding a URL called /home
 urlpatterns = [
