@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-from forms import ProfileForm, ProjectForm
-from models import Project
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+
+from .forms import ProfileForm, ProjectForm
+from .models import Project
 
 def home(request):
         return render(request, "home.html")
@@ -37,23 +38,31 @@ def viewExistingProject(request,num=None):
                 return lookUpExistingProject(request,num);
         
         if request.method == "POST":
+                #Process form
+                form = ProjectForm(request.POST)
+                if (form.is_valid()):
+                        print("Created")
+                        p = Project()
+                        p.author = request.user
+                        p.save()
+                else:
+                        print("\nForm aint valid\n")
                 handleProjectUpdate(request,num)
-
         return HttpResponseRedirect("/project")
 
 def handleProjectUpdate(request,num):
         pj = get_object_or_404(Project, pk=num)
 
-        print "lookup Successful."
+        print("lookup Successful.")
         form = ProjectForm(request.POST)
 
         if (form.is_valid()):
-                print "Form Validation Successful."
+                print("Form Validation Successful.")
                 pj = form.save(commit=False)
                 pj.projectAuthor = request.user
                 pj.save();
         else:
-                print "\nForm aint valid\n"+str(form.errors)
+                print("\nForm aint valid\n"+str(form.errors))
         
 
 def handleProjectOnPost(request):
@@ -66,10 +75,10 @@ def handleProjectOnPost(request):
                 newProject.projectAuthor = request.user        
                 newProject.save();
 
-                print "Successfully Saved"
+                print("Successfully Saved")
 
         else:
-                print "\nForm aint valid\n"+str(form.errors)
+                print("\nForm aint valid\n"+str(form.errors))
 
 
 def lookUpExistingProject(request, num):

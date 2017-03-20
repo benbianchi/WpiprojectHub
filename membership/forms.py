@@ -1,7 +1,7 @@
 #log/forms.py
 from django.contrib.auth.forms import AuthenticationForm 
 from django import forms
-from models import Major, Skill, Project
+from .models import Major, Skill, Project
 import datetime
 
 # If you don't do this you cannot use Bootstrap CSS
