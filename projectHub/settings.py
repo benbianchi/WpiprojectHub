@@ -124,7 +124,7 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-os.path.join(PROJECT_DIR, "static"),
+    ('assets', os.join(PROJECT_DIR, '../static')),
 ]
 
 LOGIN_REDIRECT_URL = '/' # It means home view
