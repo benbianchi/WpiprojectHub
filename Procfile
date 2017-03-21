@@ -1,2 +1,2 @@
-web npm install
+web: npm install
 web: gunicorn projectHub.wsgi
