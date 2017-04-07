@@ -1,0 +1,19 @@
+{% extends 'project/project_common.html' %}
+
+{% block form %}
+    
+                
+                <form method="POST" action="{{url}}">
+                {{ form }} 
+                {% csrf_token %}
+                    <hr>
+
+                    <div class="row">
+                    
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+{% endblock %}

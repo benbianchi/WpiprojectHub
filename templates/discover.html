@@ -8,26 +8,28 @@
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            {% for project in projects %}
+            <div class="row"> {% block title %}
+                <h1>Project Board</h1> {% endblock %}</div>
+            {% for project in object_list %}
             <div class="row">
-            
-            <div class="well well-lg">
-                
 
-            
-                <div class="anchor-right">
-                    <a class="user-banner" href="/profile/{{project.projectAuthor.id}}">{{ project.projectAuthor}}</a>
-                </div>
-                <div class="row">
-                    <h4 class="anchor-center"> {{project.projectName}}</h4>
-                    <p class="card-text">{{ project.projectTagLine}}</p>
-                    <a href="/project/{{project.id}}" class="btn btn-primary">View Project</a>
-                </div>
-                <div class="card-footer text-muted">
-                    Project begins on {{ project.projectBeginDate }}
+                <div class="well well-lg">
+
+
+
+                    <div class="anchor-right">
+                        <a class="user-banner" href="/profile/{{project.projectAuthor.id}}">{{ project.projectAuthor}}</a>
+                    </div>
+                    <div class="row">
+                        <h4 class="anchor-center"> {{project.projectName}}</h4>
+                        <p class="card-text">{{ project.projectTagLine}}</p>
+                        <a href="/project/{{project.id}}" class="btn btn-primary">View Project</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Project begins on {{ project.projectBeginDate }}
+                    </div>
                 </div>
             </div>
-</div>
 
             {% endfor %}
 
