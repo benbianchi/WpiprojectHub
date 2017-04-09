@@ -1,8 +1,30 @@
-.authForm{
-        padding-left: 24px;
+.authForm .mdl-form{
+        padding: 24px;
+        
 }
 
 .center
 {
-    margin-left: 30%;
+    margin-left: 35%;
+    margin-top:20px;
+    margin-bottom:20px;
 }
+
+
+.mdl-card__subtitle-text:before {
+  content: '\a';
+  white-space: pre;
+}
+
+
+.mdl-card__subtitle-text
+{
+    padding-left:100px;
+    color:white;
+}
+
+.mdl-textfield
+{
+    width:100%;
+}
+

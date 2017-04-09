@@ -1,0 +1,104 @@
+<div class="row">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" name="projectName" type="text" id="projectName" />
+        <label class="mdl-textfield__label" for="projectName">Project Name</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" name="projectTagLine" type="text" id="projectTagLine" />
+        <label class="mdl-textfield__label" for="projectTagLines">Project Tag Line</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="mdl-textfield mdl-js-textfield">
+  <textarea class="mdl-textfield__input" type="text" rows="3" name="projectDescription" id="projectDescription"></textarea>
+  <label class="mdl-textfield__label" for="projectDescription">Project Description</label>
+</div>
+</div>
+
+
+<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--6-col">
+    <h4>Majors Required:</h4>
+
+
+{% for major in  form.projectMajor %}
+<div class="row">
+    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-{{major.id_for_label}}">
+  <input type="checkbox" id="checkbox-{{major.id_for_label}}" class="mdl-checkbox__input">
+  <span class="mdl-checkbox__label">{{major.choice_label}} </span>
+</label>
+
+</div>
+{% endfor %}
+</div>
+
+<div class="mdl-cell mdl-cell--6-col float-right">
+    <h4>Skills Required:</h4>
+
+{% for skill in  form.projectSkills %}
+<div class="row">
+    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-{{skill.id_for_label}}">
+  <input type="checkbox" id="checkbox-{{skill.id_for_label}}" class="mdl-checkbox__input">
+  <span class="mdl-checkbox__label">{{skill.choice_label}} </span>
+</label>
+
+</div>
+{% endfor %}
+</div>
+
+
+<div class="row center">
+
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+     <input class="mdl-textfield__input" value="Month" type="text" id="month" readonly tabIndex="-1" />
+       <label class="mdl-textfield__label" for="month">Month</label>
+       <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="month">
+         <li class="mdl-menu__item active">January</li>
+         <li class="mdl-menu__item">February</li>
+         <li class="mdl-menu__item">March</li>
+         <li class="mdl-menu__item">April</li>
+         <li class="mdl-menu__item">May</li>
+         <li class="mdl-menu__item">June</li>
+         <li class="mdl-menu__item">July</li>
+         <li class="mdl-menu__item">August</li>
+         <li class="mdl-menu__item">September</li>
+         <li class="mdl-menu__item">October</li>
+         <li class="mdl-menu__item">November</li>
+         <li class="mdl-menu__item">December</li>
+       </ul>
+   </div>
+   
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+     <input class="mdl-textfield__input" value="Day" type="text" id="day" readonly tabIndex="-1" />
+       <label class="mdl-textfield__label" for="day">Day</label>
+       <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="day" style="overflow-y:scroll; height:200px;">
+            {% for i in "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" %}
+         <li class="mdl-menu__item active">{{ forloop.counter0}}</li>
+            {% endfor %}
+       </ul>
+   </div>
+
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+     <input class="mdl-textfield__input" value="2017" type="text" id="year" readonly tabIndex="-1" />
+       <label class="mdl-textfield__label" for="year">Year</label>
+       <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="year" style="overflow-y:scroll; height:200px;">
+            {% for i in "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" %}
+         <li class="mdl-menu__item active">{{ forloop.counter0|add:"2017"}}</li>
+            {% endfor %}
+       </ul>
+   </div>
+
+
+ 
+</div>
+</label>
+
+
+</div>

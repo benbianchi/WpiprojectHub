@@ -2,19 +2,23 @@ from django import forms
 from .models import Skill, Major, Project
 
 class ProjectForm(forms.ModelForm):
+    def __init__(self, project=None, *args, **kwargs):
+        super(ProjectForm, self ).__init__(*args, **kwargs)
+        
+
     class Meta:
         model = Project
         fields = ['projectName', 'projectTagLine', 'projectDescription', 'projectSkills', 'projectMajor', 'projectBeginDate', 'projectEndDate', 'projectDuration' ]   
     
         widgets = {
-                'projectName': forms.TextInput(attrs={'class': 'form-control'}),
-                'projectTagLine':  forms.TextInput(attrs={'class': 'form-control'}),
-                'projectDescription': forms.Textarea(attrs={'class':'form-control'}),
-                'projectSkills': forms.CheckboxSelectMultiple(attrs={'class': ''}),
+                'projectName': forms.TextInput(attrs={'class': 'mdl-textfield__input', 'pattern':'[A-Z,a-z, ]*'}),
+                'projectTagLine':  forms.TextInput(attrs={'class': 'mdl-textfield__input'}),
+                'projectDescription': forms.Textarea(attrs={'class':'mdl-textfield__input', 'rows':"1"}),
+                'projectSkills': forms.CheckboxSelectMultiple(attrs={'class': 'mdl-checkbox__input'}),
                 'projectMajor':forms.CheckboxSelectMultiple(attrs={'class': ''}),
-                'projectBeginDate':forms.SelectDateWidget(attrs={'class':'form-control'}),
-                'projectEndDate': forms.SelectDateWidget(attrs={'class':'form-control'}),
-                'projectDuration':forms.TextInput(attrs={'class':'form-control'})
+                'projectBeginDate':forms.SelectDateWidget(attrs={'class':'mdl-selectfield mdl-js-selectfield'}),
+                'projectEndDate': forms.SelectDateWidget(attrs={'class':'mdl-textfield__input'}),
+                'projectDuration':forms.TextInput(attrs={'class':'mdl-textfield__input'})
             }
         labels = {            
                 'projectName': 'Project Title',
@@ -30,6 +34,6 @@ class ProjectForm(forms.ModelForm):
                 'projectSkills' : Skill.objects.filter(),
                 'projectMajor' : Major.objects.filter()
             }
-        fields = ['projectName', 'projectTagLine', 'projectDescription', 'projectSkills', 'projectMajor', 'projectBeginDate', 'projectEndDate', 'projectDuration' ]
+        
 
    

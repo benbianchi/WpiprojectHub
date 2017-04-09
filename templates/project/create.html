@@ -1,18 +1,18 @@
 {% extends 'project/project_common.html' %}
 
 {% block form %}
-    
+        
                 
-                <form method="POST" action="{{url}}">
-                {{ form }} 
+                <form method="POST" class="mdl-form" action="{{url}}">
+                    <h4>Create Project:</h4>
+                    {% include "widgets/forms/projectForm.html" %} 
                 {% csrf_token %}
-                    <hr>
+                   
 
-                    <div class="row">
+                    <div class="">
                     
-                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                   
+                            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Submit</button>
                     </div>
                 </form>
 
