@@ -2,53 +2,32 @@
 
 
 {% block content %}
-    {% if form.errors %}
-
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-
-<p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-
-<p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
 
 <!---->
 
-    <div id="login-overlay" class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-              <h4 class="modal-title" id="myModalLabel">Login to ProjectHub</h4>
-          </div>
-          <div class="modal-body">
-              <div class="row">
-                  <div class="col-xs-12">
-                      <div class="well">
-                          <form id="loginForm" method="POST" action="{% url 'login' %}" novalidate="novalidate">
+
+<div class="mdl-card mdl-shadow--6dp center">
+			<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+				<h2 class="mdl-card__title-text">Login Form</h2>
+			</div>
+          
+                 <form class="" id="loginForm" method="POST" action="{% url 'login' %}" novalidate="novalidate">
                               {% csrf_token %}
-                              <div class="form-group">
-                                 {{ form.username.label_tag }}
-                                    {{ form.username }}
-                                  <span class="help-block"></span>
+                              <div class="mdl-textfield mdl-js-textfield">
+                                 
+                                {{ form.username }}
+                                <label class="mdl-textfield__label" for="username">Username</label>
                               </div>
-                              <div class="form-group">
-                                  {{ form.password.label_tag }}
+                              <div class="mdl-textfield mdl-js-textfield">
                                   {{ form.password }}
-                                  <span class="help-block"></span>
+                                  <label class="mdl-textfield__label" for="password">Password</label>
+                                  
                               </div>
-                              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
-                              <div class="checkbox">
-                                  <label>
-                                      <input type="checkbox" name="remember" id="remember"> Remember login
-                                  </label>
-                              </div>
-                              <button type="submit" class="btn btn-success btn-block">Login</button>
+
+                              <div class="mdl-card__actions mdl-card--border">
+				                
+                                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Login</button>
+                              
                           </form>
                           <input type="hidden" name="next" value="{{ next }}" />
                       </div>
@@ -57,17 +36,4 @@
           </div>
       </div>
   </div>
-  <!---->
-
-{% endblock %}
-
-{% block javascript %}
-
-
-<script>
-{% if not user.is_authenticated %}
-$("ul.nav.navbar-nav.navbar-right").css("display","none");
-{% endif %}
-</script>
-
 {% endblock %}

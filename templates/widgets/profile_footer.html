@@ -1,0 +1,55 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <h1 class="text-center">Project Posted by <a href="/profile/{{ project.projectAuthor.id}}">{{ project.projectAuthor}}</a> </h1>
+    </div>
+
+
+    <div class="row">
+        <p class="text-center">{{ project.projectAuthor.member.bio }}</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="row">
+
+                <div class="well">
+                    <h3>Major(s)</h3>
+
+                    {% for major in project.projectAuthor.member.major.all %}
+                    
+                        <p>{{ major }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="well">
+                    <h3>Skill(s)</h3>
+                    <hr>
+                    {% for skill in project.projectAuthor.member.skills.all %}
+                    <div class="row">
+                        <p>{{ skill }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="row">
+                <div class="well">
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content%}
-    <h1>Hasta Lavista, Baby</h1>
-    <p>You have successfully deleted your project.</p>
+
+    <form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ project.projectName }}"?</p>
+    <input type="submit" value="Confirm" />
+</form>
 {% endblock %}

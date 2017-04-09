@@ -10,6 +10,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404, redirect
+from django.core.urlresolvers import reverse, reverse_lazy
 
 
 class ProjectListView(ListView):
@@ -43,14 +44,18 @@ class ProjectUpdate(UpdateView):
     template_name = 'project/update.html'
     form_class = ProjectForm
     
+    def get_success_url(self):
+        return reverse('project_read', kwargs={"pk": self.object.id})
+    
     def get_context_data(self, **kwargs):
         context = super(ProjectUpdate, self).get_context_data(**kwargs)
         return context
 
 
 
-class ProjectDelete(DeleteView):
-    model = Project
-    template_name = 'project/delete.html'
-    form_class = ProjectForm
-    success_url="/discover/"
+def ProjectDelete(request,num):
+
+    p = get_object_or_404(Project,pk=num);
+    p.delete();
+    reverse_lazy("discover")
+

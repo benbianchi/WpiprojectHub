@@ -1,43 +1,25 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
-
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <div class="row"> {% block title %}
-                <h1>Project Board</h1> {% endblock %}</div>
-            {% for project in object_list %}
-            <div class="row">
-
-                <div class="well well-lg">
-
-
-
-                    <div class="anchor-right">
-                        <a class="user-banner" href="/profile/{{project.projectAuthor.id}}">{{ project.projectAuthor}}</a>
-                    </div>
-                    <div class="row">
-                        <h4 class="anchor-center"> {{project.projectName}}</h4>
-                        <p class="card-text">{{ project.projectTagLine}}</p>
-                        <a href="/project/{{project.id}}" class="btn btn-primary">View Project</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Project begins on {{ project.projectBeginDate }}
-                    </div>
-                </div>
-            </div>
-
-            {% endfor %}
-
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-
-        </div>
-
+    {% for project in object_list %}
+    <div class="mdl-card mdl-shadow--2dp center">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">{{ project.projectName }}</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        {{ project.projectTagLine }}
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          View Project
+        </a>
+      </div>
+      <div class="mdl-card__menu">
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+          <i class="material-icons">share</i>
+        </button>
+        
+      </div>
     </div>
-</div>
+    {% endfor %}
 {% endblock %}

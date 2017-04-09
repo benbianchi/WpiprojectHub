@@ -1,50 +1,47 @@
 {% extends 'project/project_common.html' %}
 
 {% block form %}
+
+<div class="row">
     
-   <div class="row">
-   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+   <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           
                <h4>Project Name</h4>
     </div>
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           
                <p>{{ project.projectName }}</p>
     </div>
     </div>
-    <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           
                <h4>Project Tag Line</h4>
     </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           
                <p>{{ project.projectTagLine }}</p>
     </div>
     </div>
     
-    <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           
                <h4>Project Description</h4>
     </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           
                <p>{{ project.projectDescription }}</p>
     </div>
     </div>
 
 
-    <div class="row">
-
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           
                <h4>Required Skills</h4>
     </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
             {% for skill in project.projectSkills.all %}
                 <p> {{ skill }} </p>
             {% endfor %}
@@ -52,50 +49,45 @@
     </div>
 
 
-    <div class="row">
-
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           
                <h4>Required Major</h4>
     </div>
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
             {% for major in project.projectMajor.all %}
                 <p> {{ major }} </p>
             {% endfor %}
     </div>
     </div>
 
-    <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           
                <h4>Project Begin Date</h4>
     </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           
                <p>{{ project.projectBeginDate }}</p>
     </div>
     </div>
 
-<div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           
                <h4>Project End Date</h4>
     </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           
                <p>{{ project.projectEndDate }}</p>
     </div>
     </div>
 
-    <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           
                <h4>Project Duration</h4>
     </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           
                <p>{{ project.projectDuration }}</p>
     </div>
@@ -105,43 +97,15 @@
         <a href="/project/{{project.id}}/edit" type="button" class="btn btn-success">Edit Project</a>
         </div>
     {% endif %}
+</div>
 
-<hr>
 <div class="row">
     
     
-    <h1 class="text-center"> <a href="/profile/{{ project.projectAuthor.id}}">{{ project.projectAuthor}}</a>    </h1>
+    {% include "widgets/profile_footer.html" %}
     
 
 </div>
-    
-    <div class="row">
-      <p class="text-center">{{ project.projectAuthor.member.bio }}</p>  
-    </div>
-    <div class="row container">
-        
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 well">
-            <h3>Skills</h3>
-
-            {% for skill in project.projectAuthor.member.skills.all %}
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    {{ skill }}
-                </div>
-            {% endfor %}
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 well">
-            
-            <h3>Major(s)</h3>
-
-            {% for major in project.projectAuthor.member.major.all %}
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    {{ major }}
-                </div>
-            {% endfor %}
-
-        </div>
-    </div>
-    
 
 {% endblock %}
+
