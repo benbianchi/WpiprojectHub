@@ -1,8 +1,12 @@
-.authForm .mdl-form{
+.authForm .mdl-form {
         padding: 24px;
         
 }
 
+.getmdl-select
+{
+    width:80% !important;
+}
 .center
 {
     margin-left: 35%;
@@ -28,3 +32,34 @@
     width:100%;
 }
 
+.row
+{
+    margin-bottom: 20px;
+}
+
+.mdl-menu--bottom-left.mdl-js-menu
+{
+overflow-y:scroll; 
+height:200px;
+width: 200px;
+}
+
+.form-icon
+{
+    padding-top: 20px;
+}
+
+.form-item
+{
+    margin-top:20px;
+}
+
+.command-buttons button, .command-buttons a{
+    margin-right: 30px;
+}
+
+.gutter-command
+{
+    margin-top: 10px;
+    margin-left: 90px ;
+}

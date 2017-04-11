@@ -3,16 +3,16 @@
 {% block form %}
         
                 
-                <form method="POST" class="mdl-form" action="{{url}}">
+                <form method="post" class="mdl-form" action="">
                     <h4>Create Project:</h4>
                     {% include "widgets/forms/projectForm.html" %} 
                 {% csrf_token %}
                    
 
-                    <div class="">
-                    
-                   
+
+                    <div class="command-buttons">
                             <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Submit</button>
+                            <a type="submit" href="/project/create" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">Cancel</a>
                     </div>
                 </form>
 

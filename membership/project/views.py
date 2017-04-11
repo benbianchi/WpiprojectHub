@@ -22,6 +22,7 @@ class ProjectCreate(CreateView):
     template_name = 'project/create.html'
     form_class = ProjectForm
     success_url="/discover/"
+    fail_url="/"
 
     def form_valid(self, form):
         form.instance.projectAuthor = self.request.user
