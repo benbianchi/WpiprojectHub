@@ -4,99 +4,95 @@
 
 <div class="row">
     
-   <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          
-               <h4>Project Name</h4>
-    </div>
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          
-               <p>{{ project.projectName }}</p>
-    </div>
-    </div>
-    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          
-               <h4>Project Tag Line</h4>
+    <div class="mdl-grid mdl-shadow--4dp form-item">
+        <h3 class="text-center">Project Runs from {{ project.projectBeginDate }} to {{ project.projectEndDate }}</h3>
+</div>   
+   <div class="mdl-grid mdl-shadow--4dp form-item">
+
+
+    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">title</i></div>
+    <div class="mdl-cell--11-col">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <h4>{{ project.projectName }}</h4>
+        <label class="mdl-textfield__label" for="projectTagLines">Project Name</label>
+        </div>
     </div>
 
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          
-               <p>{{ project.projectTagLine }}</p>
+</div>
+
+<div class="mdl-grid mdl-shadow--4dp form-item">
+
+    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">label</i></div>
+    <div class="mdl-cell--11-col">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <h4>{{ project.projectTagLine }}</h4>
+            <label class="mdl-textfield__label" for="projectTagLines">Project Tag Line</label>
+        </div>
     </div>
+</div>
+
+
+<div class="mdl-grid mdl-shadow--4dp form-item">
+
+    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">description</i></div>
+    <div class="mdl-cell--11-col">
+        <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
+            <h4>{{ project.projectDescription }}</h4>
+            <label class="mdl-textfield__label" for="projectDescription">Project Description</label>
+        </div>
+    </div>
+</div>
+
+
+<div class="mdl-grid mdl-shadow--4dp form-item">
+
+    <div class="mdl-cell mdl-cell--6-col">
+        <h4>Majors Required:</h4>
+
+
+        {% for major in project.projectMajor.all %}
+        <div class="">
+
+        <span class="mdl-chip">
+            <span class="mdl-chip__text">{{ major }}</span>
+        </span>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mdl-cell mdl-cell--6-col float-right">
+        <h4>Skills Required:</h4>
+
+        {% for skill in project.projectSkills.all %}
+        <div class="">
+        <span class="mdl-chip">
+            <span class="mdl-chip__text">{{ skill }}</span>
+        </span>
+    </div>
+        {% endfor %}
     </div>
     
-    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          
-               <h4>Project Description</h4>
-    </div>
-
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          
-               <p>{{ project.projectDescription }}</p>
-    </div>
     </div>
 
 
-    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          
-               <h4>Required Skills</h4>
-    </div>
-
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-            {% for skill in project.projectSkills.all %}
-                <p> {{ skill }} </p>
-            {% endfor %}
-    </div>
-    </div>
 
 
-    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          
-               <h4>Required Major</h4>
-    </div>
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-            {% for major in project.projectMajor.all %}
-                <p> {{ major }} </p>
-            {% endfor %}
-    </div>
-    </div>
+<div class="mdl-grid mdl-shadow--4dp form-item">
 
-    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          
-               <h4>Project Begin Date</h4>
-    </div>
-
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          
-               <p>{{ project.projectBeginDate }}</p>
-    </div>
-    </div>
-
-<div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          
-               <h4>Project End Date</h4>
-    </div>
-
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          
-               <p>{{ project.projectEndDate }}</p>
-    </div>
-    </div>
-
-    <div class="row">     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          
-               <h4>Project Duration</h4>
-    </div>
-
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-          
-               <p>{{ project.projectDuration }}</p>
-    </div>
-    </div>
-    {% if  project.projectAuthor == request.user %}
-        <div class="container">
-        <a href="/project/{{project.id}}/edit" type="button" class="btn btn-success">Edit Project</a>
+    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">access_time</i></div>
+    <div class="mdl-cell--11-col">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <h4>{{project.projectDuration}}</h4>
+            <label class="mdl-textfield__label" for="projectDuration">Estimated Hours Per Week</label>
         </div>
-    {% endif %}
+    </div>
+</div>
+
+
+
+
+
+
 </div>
 
 <div class="row">
@@ -107,5 +103,22 @@
 
 </div>
 
+
 {% endblock %}
 
+
+{% block left %}
+    <!-- Colored FAB button with ripple -->
+    <div class="gutter-command-panel">
+        <div class="row">
+        <a href="/discover/" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored gutter-command">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        </div>
+<div class="row">
+<a href="/project/{{project.id}}/edit" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored gutter-command">
+  <i class="material-icons">edit</i>
+</a>
+</div>
+</div>
+{% endblock %}

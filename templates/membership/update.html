@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block content %}
+<h3>Edit Profile</h3>
+<h4>{{ profile.user }} </h4>
+<form method="post" class="mdl-form">
+    {% csrf_token %}
+<div class="mdl-grid mdl-shadow--4dp form-item">
+
+    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">description</i></div>
+    <div class="mdl-cell--11-col">
+        <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
+            {{ form.bio }}
+            <label class="mdl-textfield__label" for="projectDescription">Project Description</label>
+        </div>
+    </div>
+</div>
+
+<div class="mdl-grid mdl-shadow--4dp form-item">
+
+    <div class="mdl-cell mdl-cell--6-col">
+        <h4>My Major(s):</h4>
+
+
+        {% for major in form.majors %}
+        <div class="row">
+        
+
+            <label class="mdl-checkbox mdl-js-checkbox {% if major.value %} is-checked {% endif %}" for="{{major.id_for_label}}">
+        <input type="checkbox" value="{{forloop.counter0|add:"1"}}" name="majors" id="{{major.id_for_label}}" class="mdl-checkbox__input" {% if major.value %} checked {% endif %}>
+        <span class="mdl-checkbox__label">{{ major.choice_label }}</span>
+    </label>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mdl-cell mdl-cell--6-col float-right">
+        <h4>My Skill(s):</h4>
+
+        {% for skill in form.skills %}
+        <div class="row">
+        <label class="mdl-checkbox mdl-js-checkbox {% if skill.value %} is-checked {% endif %}" for="{{skill.id_for_label}}" >
+        <input type="checkbox" value="{{forloop.counter0|add:"1"}}" name="skills" id="{{skill.id_for_label}}" class="mdl-checkbox__input" {% if skill.value %} checked {% endif %}>
+        <span class="mdl-checkbox__label">{{ skill.choice_label }}</span>
+    </label>
+        </div>
+        {% endfor %}
+    </div>
+    
+    </div>
+
+<div class="command-buttons">
+    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Submit</button>
+</div>
+    </form>
+{% endblock %}
+{% block left %}
+    <!-- Colored FAB button with ripple -->
+    <div class="gutter-command-panel">
+        <a href="/profile/{{profile.id}}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored gutter-command">
+            <i class="material-icons">arrow_back</i>
+        </a>
+    </div>
+{% endblock %}

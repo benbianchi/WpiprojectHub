@@ -14,10 +14,5 @@ class LoginForm(AuthenticationForm):
     
 
 
-# class ProfileForm(forms.Form):
-#     skill = forms.ModelChoiceField(Skill.objects.all(),required=True, widget=forms.SelectMultiple(attrs={'class':'form-control'}),label="Select Skill(s):")    
-#     major = forms.ModelChoiceField(Major.objects.all(),required=True, widget=forms.SelectMultiple(attrs={'class':'form-control'}),label="Select Major(s):")
-#     bio = forms.CharField(label="Please enter a bio below for professors to read when you apply to a projects:",widget=forms.Textarea(attrs={'class':'form-control'}))  
-
 
 

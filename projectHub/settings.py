@@ -25,7 +25,7 @@ SECRET_KEY = '*5zlm%82tb!7shz$kma_=ygg4jol)tcd)6pt@$2h^o=4obs^#%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wpiprojectportal.herokuapp.com']
+ALLOWED_HOSTS = ['wpiprojectportal.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -124,7 +124,7 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    ('assets', os.path.join(PROJECT_DIR, '../static')),
+os.path.join(BASE_DIR, "static"),
 ]
 
 LOGIN_REDIRECT_URL = '/' # It means home view

@@ -16,8 +16,7 @@ class ProjectForm(forms.ModelForm):
         print cleaned_data.get("projectBeginDate");
         print cleaned_data.get("projectEndDate");
         print cleaned_data.get("projectDuration");
-        
-
+    
  
 
     class Meta:

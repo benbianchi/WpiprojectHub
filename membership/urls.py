@@ -1,8 +1,8 @@
 # log/urls.py
 from django.conf.urls import url
 from . import views
-from project.views import *
-
+from membership.project.views import *
+from membership.profile.views import *
 
 # We are adding a URL called /home
 urlpatterns = [
@@ -19,7 +19,9 @@ urlpatterns = [
     
     
     #Profile CRUD
-    url(r'^profile/(?P<pk>[0-9]+)$', views.profile, name="profile"),
+    url(r'^profile/(?P<pk>[0-9]+)$', ProfileRead.as_view(), name="profile"),
+    url(r'^profile/(?P<pk>[0-9]+)/edit$', ProfileUpdate.as_view(), name="profile_edit"),
+    
     #Manage Project URL
-    # url(r'^manage/$', views.manageProjects, name='project'),
+    url(r'^manage/$', ManageProjectView.as_view(), name='project'),
 ]

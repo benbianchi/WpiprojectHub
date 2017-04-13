@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
@@ -11,7 +10,15 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404, redirect
 from django.core.urlresolvers import reverse, reverse_lazy
+from django.http import HttpResponseForbidden
 
+
+class ManageProjectView(ListView):
+    model = Project
+    template_name='membership/manage.html'
+    def get_queryset(self):
+        qs = super(ManageProjectView, self).get_queryset()
+        return qs.filter(projectAuthor__exact=self.request.user)
 
 class ProjectListView(ListView):
     model = Project
@@ -45,6 +52,12 @@ class ProjectUpdate(UpdateView):
     template_name = 'project/update.html'
     form_class = ProjectForm
     
+    def get_object(self, *args, **kwargs):
+        obj = super(ProjectUpdate, self).get_object(*args, **kwargs)
+        if not obj.projectAuthor == self.request.user:
+             return HttpResponseForbidden() # TODO
+        return obj
+
     def get_success_url(self):
         return reverse('project_read', kwargs={"pk": self.object.id})
     

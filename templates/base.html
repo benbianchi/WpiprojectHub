@@ -4,8 +4,14 @@
 <html lang="en">
 
 <head>
-
-
+   <link rel="stylesheet" href="{% static 'bower_components/material-design-lite/material.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'bower_components/material-design-lite/material.min.js' %}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <script src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
+    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.js' %}"></script> 
+    {% block importables%}{% endblock %}
    <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
@@ -15,9 +21,12 @@
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
+      {% if user.is_authenticated %}
+      {% else %}
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" href="/login/">Sign In</a>
       </nav>
+      {% endif %}
     </div>
   </header>
   {% if user.is_authenticated %}
@@ -52,15 +61,6 @@
     
 </body>
 
-    <link rel="stylesheet" href="{% static 'bower_components/material-design-lite/material.min.css' %}">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <script src="{% static 'bower_components/material-design-lite/material.min.js' %}"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-    <script src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
-    <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.js' %}"></script> 
-
-<script src="{% static 'bower_components/getmdl-select/getmdl-select.min.js' %}"></script>
-<link rel="stylesheet" href="{% static 'bower_components/getmdl-select/getmdl-select.min.css' %}">
+ 
 
 </html>

@@ -54,12 +54,42 @@ width: 200px;
     margin-top:20px;
 }
 
+.command-buttons{
+    padding-top: 10px;
+}
 .command-buttons button, .command-buttons a{
     margin-right: 30px;
 }
 
-.gutter-command
+.gutter-command-panel
 {
-    margin-top: 10px;
-    margin-left: 90px ;
+    position: fixed;
+    margin-top:30px;
+    margin-left: 100px ;
 }
+
+.gutter-command{
+    margin-top: 10px;
+}
+
+.bio-card,.mdl-dialog-bg
+{
+    width:480px;
+}
+.text-center{
+    align-self: center;
+    text-align: center;
+}
+
+.profile-pic
+{
+    height: 120px;
+    width: 120px;
+}
+
+.row-title
+{
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
