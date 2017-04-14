@@ -10,7 +10,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404, redirect
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.http import HttpResponseForbidden
+from django.core.exceptions import PermissionDenied
 
 
 class ManageProjectView(ListView):
@@ -55,7 +55,7 @@ class ProjectUpdate(UpdateView):
     def get_object(self, *args, **kwargs):
         obj = super(ProjectUpdate, self).get_object(*args, **kwargs)
         if not obj.projectAuthor == self.request.user:
-             return HttpResponseForbidden() # TODO
+             raise PermissionDenied()
         return obj
 
     def get_success_url(self):
@@ -71,5 +71,5 @@ def ProjectDelete(request,num):
 
     p = get_object_or_404(Project,pk=num);
     p.delete();
-    reverse_lazy("discover")
+    return redirect("discover")
 

@@ -25,7 +25,7 @@ class Project(models.Model):
     projectMajor = models.ManyToManyField(Major, blank=True);
     projectSkills = models.ManyToManyField(Skill, blank=True);
 
-
-    projectBeginDate = models.DateField(null=True)
-    projectEndDate = models.DateField(null=True)
+    postDate = models.DateField(auto_now=True)
+    projectBeginDate = models.DateField(blank=True, null=True)
+    projectEndDate = models.DateField(blank=True, null=True)
     projectDuration = models.FloatField(null=True)

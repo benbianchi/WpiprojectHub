@@ -22,10 +22,12 @@
 
         {% for major in form.majors %}
         <div class="row">
-        
+    
 
-            <label class="mdl-checkbox mdl-js-checkbox {% if major.value %} is-checked {% endif %}" for="{{major.id_for_label}}">
-        <input type="checkbox" value="{{forloop.counter0|add:"1"}}" name="majors" id="{{major.id_for_label}}" class="mdl-checkbox__input" {% if major.value %} checked {% endif %}>
+            <label class="mdl-checkbox mdl-js-checkbox " for="{{major.id_for_label}}">
+        <input type="checkbox" value="{{forloop.counter0|add:"1"}}" name="majors" id="{{major.id_for_label}}" class="mdl-checkbox__input" 
+        {% if forloop.counter0|add:"1" in form.majors.value %} checked {% endif %}
+        />
         <span class="mdl-checkbox__label">{{ major.choice_label }}</span>
     </label>
         </div>
@@ -35,10 +37,12 @@
     <div class="mdl-cell mdl-cell--6-col float-right">
         <h4>My Skill(s):</h4>
 
-        {% for skill in form.skills %}
+                {% for skill in form.skills %}
         <div class="row">
-        <label class="mdl-checkbox mdl-js-checkbox {% if skill.value %} is-checked {% endif %}" for="{{skill.id_for_label}}" >
-        <input type="checkbox" value="{{forloop.counter0|add:"1"}}" name="skills" id="{{skill.id_for_label}}" class="mdl-checkbox__input" {% if skill.value %} checked {% endif %}>
+        <label class="mdl-checkbox mdl-js-checkbox " for="{{skill.id_for_label}}" >
+            
+        <input type="checkbox" value="{{forloop.counter0|add:"1"}}" name="skills" id="{{skill.id_for_label}}" class="mdl-checkbox__input" 
+        {% if forloop.counter0|add:"1" in form.skills.value %} checked {% endif %}/>
         <span class="mdl-checkbox__label">{{ skill.choice_label }}</span>
     </label>
         </div>

@@ -22,3 +22,9 @@
         </a>
     </div>
     {% endblock %}
+
+{% block importables %} {% load staticfiles %}
+
+<script src="{% static 'bower_components/getmdl-select/getmdl-select.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'bower_components/getmdl-select/getmdl-select.min.css' %}">
+{% endblock %}

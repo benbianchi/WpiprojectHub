@@ -4,6 +4,8 @@
 <html lang="en">
 
 <head>
+
+  <title>{% block title %}Project Hub{% endblock %}</title>
    <link rel="stylesheet" href="{% static 'bower_components/material-design-lite/material.min.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <script src="{% static 'bower_components/material-design-lite/material.min.js' %}"></script>
@@ -33,10 +35,11 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">{{ user.username }}</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="/discover/">Discover</a>
-      <a class="mdl-navigation__link" href="/project/create">Post</a>
-      <a class="mdl-navigation__link" href="/manage/">Manage</a>
-      <a class="mdl-navigation__link" href="/profile/{{ user.id }}">Profile</a>
+      <a class="mdl-navigation__link" href="/project/create"><i class="material-icons">note_add</i> Post</a>
+      <a class="mdl-navigation__link" href="/discover/"> <i class="material-icons">view_list</i> Discover</a>
+      <a class="mdl-navigation__link" href="/manage/"><i class="material-icons">assignment</i> Manage</a>
+      <a class="mdl-navigation__link" href="/profile/{{ user.id }}"><i class="material-icons">account_circle</i> Profile</a>
+      <a class="mdl-navigation__link" href="/about/"><i class="material-icons">info_outline</i> About</a>
     </nav>
   </div>
   {% endif %}

@@ -1,4 +1,7 @@
-{% extends 'project/project_common.html' %} {% block form %}
+{% extends 'project/project_common.html' %}
+
+{% block title %}Editting  {{project.projectName}} {% endblock %}
+ {% block form %}
 
 
 <form method="POST" action="{{url}}">
@@ -53,8 +56,4 @@
 <a href="/project/{{ object.id }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored gutter-command">
     <i class="material-icons">arrow_back</i>
 </a>
-{% endblock %} {% block importables %} {% load staticfiles %}
-
-<script src="{% static 'bower_components/getmdl-select/getmdl-select.min.js' %}"></script>
-<link rel="stylesheet" href="{% static 'bower_components/getmdl-select/getmdl-select.min.css' %}">
 {% endblock %}

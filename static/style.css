@@ -93,3 +93,21 @@ width: 200px;
     margin-left: 20px;
 }
 
+
+.mdl-card__footer
+{
+    padding-bottom: 0px;
+    padding-top: 5px;
+    padding-right: 15px;
+    border-top:1px solid rgba(0,0,0,.1);
+}
+.mdl-card__footer_text
+{
+    text-align: right;
+    font-size: 0.7em;
+    margin-bottom: 0px;
+}
+.mdl-navigation__link > i
+{
+    padding-right: 20px;
+}
