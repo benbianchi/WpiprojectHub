@@ -64,7 +64,12 @@
   margin: auto;
 }
 
+.mdl-button {
+  margin: 30px;
+  color: white;
+  border: 2px solid #FFF
 
+}
 /* END banner section */
 
 
