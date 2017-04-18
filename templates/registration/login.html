@@ -1,39 +1,39 @@
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 
 
-{% block content %}
+    {% block content %}
 
-<!---->
+    <!---->
 
 
-<div class="mdl-card mdl-shadow--6dp center">
-			<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-				<h2 class="mdl-card__title-text">Login Form</h2>
-			</div>
-          
-                 <form class="authForm" id="loginForm" method="POST" action="{% url 'login' %}" novalidate="novalidate">
-                              {% csrf_token %}
-                              <div class="mdl-textfield mdl-js-textfield">
-                                 
-                                {{ form.username }}
-                                <label class="mdl-textfield__label" for="username">Username</label>
-                              </div>
-                              <div class="mdl-textfield mdl-js-textfield">
-                                  {{ form.password }}
-                                  <label class="mdl-textfield__label" for="password">Password</label>
-                                  
-                              </div>
+    <div class="mdl-card mdl-shadow--6dp center">
+                <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+                    <h2 class="mdl-card__title-text">Login Form</h2>
+                </div>
+            
+                    <form class="authForm" id="loginForm" method="POST" action="{% url 'login' %}" novalidate="novalidate">
+                                {% csrf_token %}
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    
+                                    {{ form.username }}
+                                    <label class="mdl-textfield__label" for="username">Username</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    {{ form.password }}
+                                    <label class="mdl-textfield__label" for="password">Password</label>
+                                    
+                                </div>
 
-                              <div class="mdl-card__actions mdl-card--border">
-				                
-                                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Login</button>
-                              
-                          </form>
-                          <input type="hidden" name="next" value="{{ next }}" />
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-{% endblock %}
+                                <div class="mdl-card__actions mdl-card--border">
+                                    
+                                    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Login</button>
+                                
+                            </form>
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

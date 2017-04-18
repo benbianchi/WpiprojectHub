@@ -128,3 +128,8 @@ os.path.join(BASE_DIR, "static"),
 ]
 
 LOGIN_REDIRECT_URL = '/' # It means home view
+
+ACCOUNT_ACTIVATION_DAYS=7
+
+
+

@@ -50,3 +50,10 @@ class ProjectForm(forms.ModelForm):
         
 
    
+class searchForm(forms.Form):
+    
+    fields = ProjectForm.Meta.fields;
+
+    searchValue = forms.CharField(label="searchValue", max_length=30, 
+                               widget=forms.TextInput(attrs={'class': 'mdl-textfield__input', 'name': 'username'}))
+    searchField = forms.Select();

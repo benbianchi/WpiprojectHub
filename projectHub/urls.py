@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^logout/$', views.logout, {'next_page': '/login'}),  
 
         # Registration using middle-ware
-    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
+    # url(r'^accounts/', include('registration.backends.hmac.urls')),
 
 ]

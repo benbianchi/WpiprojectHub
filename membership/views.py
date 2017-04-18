@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from .project.models import Project
+from .project.forms import searchForm
 
 
 
@@ -14,7 +15,7 @@ def discover(request):
         projects = Project.objects.filter().order_by('projectBeginDate')
 
 
-        return render(request, "discover.html" ,{"projects": projects})
+        return render(request, "discover.html" ,{"projects": projects, "searchForm": searchForm})
 
 @login_required(login_url="/login/")
 def profile(request):
