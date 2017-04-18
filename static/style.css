@@ -73,11 +73,21 @@
 /* END banner section */
 
 
-.authForm .mdl-form {
-        padding: 24px;
+.authForm > .mdl-textfield {
+       width:90%;
+       margin-left:5%;
         
 }
+.mdl-card > div.mdl-card__actions.mdl-card--border
+{
+    height: 60px;
+}
 
+div.mdl-card__actions > button, div.mdl-card__actions > a
+{
+    height: 30px;
+    margin: 0px;
+}
 .getmdl-select
 {
     width:80% !important;
@@ -185,4 +195,8 @@ width: 200px;
 .mdl-navigation__link > i
 {
     padding-right: 20px;
+}
+
+.logout__link{
+    height: 20px;   
 }

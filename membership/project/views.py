@@ -4,27 +4,41 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from django import forms
 from .models import Project, Skill, Major
-from .forms import ProjectForm
+from .forms import ProjectForm, searchForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404, redirect
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.core.exceptions import PermissionDenied
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import FormMixin
 
 
-class ManageProjectView(ListView):
-    model = Project
+
+    
+class SearhableListView(LoginRequiredMixin, FormMixin, ListView):
+    def get(self, request, *args, **kwargs):
+        # From ProcessFormMixin
+        form_class = self.get_form_class()
+        self.form = self.get_form(form_class)
+
     template_name='membership/manage.html'
     def get_queryset(self):
         qs = super(ManageProjectView, self).get_queryset()
         return qs.filter(projectAuthor__exact=self.request.user)
 
+
+class ManageProjectView(SearhableListView):
+    form_class = searchForm
+    model = Project
+
 class ProjectListView(ListView):
     model = Project
     template_name = 'discover.html'
 
-class ProjectCreate(CreateView):
+
+class ProjectCreate(LoginRequiredMixin,CreateView):
     model = Project
     template_name = 'project/create.html'
     form_class = ProjectForm
@@ -34,7 +48,6 @@ class ProjectCreate(CreateView):
     def form_valid(self, form):
         form.instance.projectAuthor = self.request.user
         return super(ProjectCreate, self).form_valid(form)
-
 
 
 class ProjectRead(DetailView):
@@ -47,7 +60,7 @@ class ProjectRead(DetailView):
         return context
 
 
-class ProjectUpdate(UpdateView):
+class ProjectUpdate(LoginRequiredMixin,UpdateView):
     model = Project
     template_name = 'project/update.html'
     form_class = ProjectForm
@@ -66,7 +79,7 @@ class ProjectUpdate(UpdateView):
         return context
 
 
-
+@login_required(login_url="/login/")
 def ProjectDelete(request,num):
 
     p = get_object_or_404(Project,pk=num);

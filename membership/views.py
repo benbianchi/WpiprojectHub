@@ -13,9 +13,7 @@ def home(request):
 @login_required(login_url="/login/")
 def discover(request):
         projects = Project.objects.filter().order_by('projectBeginDate')
-
-
-        return render(request, "discover.html" ,{"projects": projects, "searchForm": searchForm})
+        return render(request, "discover.html" ,{"projects": projects, 'searchForm': ProfileForm})
 
 @login_required(login_url="/login/")
 def profile(request):

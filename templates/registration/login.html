@@ -14,12 +14,12 @@
                     <form class="authForm" id="loginForm" method="POST" action="{% url 'login' %}" novalidate="novalidate">
                                 {% csrf_token %}
                                 <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" name="username" id="{{ form.username.id_for_label }}">
                                     
-                                    {{ form.username }}
                                     <label class="mdl-textfield__label" for="username">Username</label>
                                 </div>
                                 <div class="mdl-textfield mdl-js-textfield">
-                                    {{ form.password }}
+                                    <input class="mdl-textfield__input" type="password" name="password" id="{{ form.password.id_for_label }}">
                                     <label class="mdl-textfield__label" for="password">Password</label>
                                     
                                 </div>
