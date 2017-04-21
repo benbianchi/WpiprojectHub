@@ -123,12 +123,12 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-os.path.join(PROJECT_ROOT, 'static'),
+os.path.join(BASE_DIR, "static"),
 ]
 
 LOGIN_REDIRECT_URL = '/' # It means home view
 
-ACCOUNT_ACTIVATION_DAYS=6
+ACCOUNT_ACTIVATION_DAYS=7
 
 
 
