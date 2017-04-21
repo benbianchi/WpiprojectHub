@@ -25,7 +25,7 @@ SECRET_KEY = '*5zlm%82tb!7shz$kma_=ygg4jol)tcd)6pt@$2h^o=4obs^#%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wpiprojectportal.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['pjhub.herokuapp.com', 'localhost']
 
 
 # Application definition
