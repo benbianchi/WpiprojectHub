@@ -3,7 +3,7 @@ from django.conf.urls import url
 from . import views
 from membership.project.views import *
 from membership.profile.views import *
-
+from membership.views import SearchListView
 # We are adding a URL called /home
 urlpatterns = [
     url(r'^$', views.home, name='home'),
@@ -24,4 +24,7 @@ urlpatterns = [
     
     #Manage Project URL
     url(r'^manage/$', ManageProjectView.as_view(), name='project'),
+
+    #Manage Search URL
+    url(r'^search/$', SearchListView.as_view(), name='search'),
 ]

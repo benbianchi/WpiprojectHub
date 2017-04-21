@@ -64,7 +64,7 @@
   margin: auto;
 }
 
-.mdl-button {
+.banner-button  {
   margin: 30px;
   color: white;
   border: 2px solid #FFF
@@ -199,4 +199,19 @@ width: 200px;
 
 .logout__link{
     height: 20px;   
+}
+
+.search-icon 
+{
+    top:-16px !important;
+    left:-35px !important;
+}
+
+
+#search-input
+{
+    margin-right: 10px;
+    margin-left: 10px;
+
+    padding-left: 10px;
 }

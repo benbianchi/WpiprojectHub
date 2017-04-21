@@ -16,22 +16,14 @@ from django.views.generic.edit import FormMixin
 
 
 
-    
-class SearhableListView(LoginRequiredMixin, FormMixin, ListView):
-    def get(self, request, *args, **kwargs):
-        # From ProcessFormMixin
-        form_class = self.get_form_class()
-        self.form = self.get_form(form_class)
+
+class ManageProjectView(LoginRequiredMixin, ListView):
 
     template_name='membership/manage.html'
+    model = Project
     def get_queryset(self):
         qs = super(ManageProjectView, self).get_queryset()
         return qs.filter(projectAuthor__exact=self.request.user)
-
-
-class ManageProjectView(SearhableListView):
-    form_class = searchForm
-    model = Project
 
 class ProjectListView(ListView):
     model = Project

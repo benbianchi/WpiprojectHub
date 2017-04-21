@@ -3,8 +3,7 @@ from .models import Profile
 from membership.project.models import Skill, Major
 class ProfileForm(forms.ModelForm):
     def __init__(self, project=None, *args, **kwargs):
-        super(ProfileForm, self ).__init__(*args, **kwargs)
-        
+        super(ProfileForm, self ).__init__(*args, **kwargs) 
 
     class Meta:
         model = Profile

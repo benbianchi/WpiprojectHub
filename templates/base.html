@@ -23,12 +23,31 @@
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
-      {% if user.is_authenticated %}
-      {% else %}
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
+  
+      
+      <nav class="mdl-navigation">
+  
+        {% if user.is_authenticated %}  
+        {% else %}
         <a class="mdl-navigation__link" href="/login/">Sign In</a>
-      </nav>
+      
       {% endif %}
+  <!-- start search form -->
+  <form action="/search/">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
+      <i class="material-icons">search</i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="search-expandable" name="q" />
+      <label class="mdl-textfield__label" for="search-expandable">Search text</label>
+    </div>
+  </div>
+  </form>
+  <!-- end search form -->
+
+</nav>
+      
     </div>
   </header>
   {% if user.is_authenticated %}

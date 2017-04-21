@@ -11,14 +11,16 @@ from django.http import HttpResponseForbidden
 from .models import Profile
 from .forms import ProfileForm
 from django.views.generic.detail import DetailView
+from django.http import Http404
 
 class ProfileRead(DetailView):
+
     model = Profile
-
     template_name = 'membership/profile.html'
-
+        
     def get_context_data(self, **kwargs):
         context = super(ProfileRead, self).get_context_data(**kwargs)
+        print context
         return context
 
 

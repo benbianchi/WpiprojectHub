@@ -3,8 +3,51 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from .project.models import Project
+from .profile.models import Profile
 from .project.forms import searchForm
+from django.views.generic.list import ListView
+import operator
+from django.db.models import Q
 
+
+def profileQueryOrNone(query):
+        try:
+                qlist =Profile.objects.filter(
+                        Q(bio__icontains=query) |
+                        Q(skills__SkillName__icontains=query)  |
+                        Q(majors__MajorName__icontains=query),
+                )
+        except Profile.DoesNotExist:
+                return None;
+        return qlist;
+
+def projectQueryOrNone(query):
+        try:
+                qlist =Project.objects.filter(
+                        Q(projectName__icontains=query) |
+                        Q(projectTagLine__icontains=query) |
+                        Q(projectDescription__icontains=query) |
+                        # Q(projectMajor_MajorName__icontains=query) |
+                        # Q(projectSkill_SkillName__icontains=query) |
+                        Q(postDate__icontains=query) |
+                        Q(projectBeginDate__icontains=query) |
+                        Q(projectEndDate__icontains=query)
+                )
+        except Project.DoesNotExist:
+                return None;
+        return qlist;
+
+class SearchListView(ListView):
+        model = Project
+        context_object_name = 'search_list'    
+        template_name = 'search.html'
+        queryset = projectQueryOrNone("M");
+
+        def get_context_data(self, **kwargs):
+                context = super(SearchListView, self).get_context_data(**kwargs)
+                context['profiles'] = profileQueryOrNone("M")
+                
+                return context
 
 
 def home(request):
@@ -18,77 +61,3 @@ def discover(request):
 @login_required(login_url="/login/")
 def profile(request):
         return render(request, "membership/profile.html", {'profile_form': ProfileForm})
-
-
-        
-# #Create Read Update Delete
-# @login_required(login_url="/login/")
-# def projectRead(request,num):
-#         if (request.method == "GET"):
-#                 return lookUpExistingProject(request,num);
-#         else:
-#                 return projectUpdate(request,num);
-# @login_required(login_url="/login/")
-# def projectCreate(request):
-#         f = ProjectForm(request.POST)
-        
-#         newProject = f.save(commit=False)
-#         newProject.projectAuthor = request.user        
-#         newProject.save();
-
-#         assembleProject(request,f, newProject)
-
-        
-#         print("Successfully Saved")
-#         return redirect("/discover/")
-
-
-# @login_required(login_url="/login/")
-# def projectUpdate(request,num):
-#         pj = get_object_or_404(Project, pk=num)
-#         projectForm = ProjectForm(request.POST)  
-        
-
-#         assembleProject(request,projectForm,pj)
-#         pj.save();
-        
-#         return redirect("/project/"+str(pj.id))
-
-
-
-# @login_required(login_url="/login/")
-# def projectDelete(request,num):
-#         pj = get_object_or_404(Project, pk=num)
-
-#         if (pj.projectAuthor == request.user):
-#                 pj.delete()
-#                 return render(request,"project/delete.html");
-#         else:
-#                 return render(request,"unauthorized.html");
-
-# @login_required(login_url="/login/")        
-# def assembleProject(request,form, pj):
-#         if (form.is_valid()):
-#                 pj.projectSkills = form.cleaned_data['projectSkills']
-#                 pj.projectMajor = form.cleaned_data['projectMajor']
-#                 pj.projectAuthor = request.user
-#                 print "Form Populated."
-#         else:
-#                 print("\nForm aint valid\n"+str(form.errors))
-
-# @login_required(login_url="/login/")
-# def lookUpExistingProject(request, num):
-
-#         pj = get_object_or_404(Project, pk=num)
-#         projectForm = ProjectForm(instance=pj)        
-#         return render(request,"project/project.html", {"project_form": projectForm, "project":pj })
-
-# @login_required(login_url="/login/")
-
-
-# @login_required(login_url="/login/")
-# def manageProjects(request):
-#         projects = Project.objects.filter(projectAuthor__exact=request.user)
-
-
-#         return render(request, "membership/manage.html" ,{"projects": projects})
