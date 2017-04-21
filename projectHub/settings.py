@@ -128,7 +128,7 @@ os.path.join(PROJECT_ROOT, 'static'),
 
 LOGIN_REDIRECT_URL = '/' # It means home view
 
-ACCOUNT_ACTIVATION_DAYS=7
+ACCOUNT_ACTIVATION_DAYS=6
 
 
 
