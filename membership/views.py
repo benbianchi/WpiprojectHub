@@ -6,13 +6,14 @@ from .project.models import Project
 from .profile.models import Profile
 from .project.forms import searchForm
 from django.views.generic.list import ListView
-import operator
+from django.http import QueryDict
 from django.db.models import Q
 
 
 def profileQueryOrNone(query):
         try:
                 qlist =Profile.objects.filter(
+                        Q(user__username__icontains=query) |
                         Q(bio__icontains=query) |
                         Q(skills__SkillName__icontains=query)  |
                         Q(majors__MajorName__icontains=query),
@@ -41,11 +42,16 @@ class SearchListView(ListView):
         model = Project
         context_object_name = 'search_list'    
         template_name = 'search.html'
-        queryset = projectQueryOrNone("M");
+
+        
+        def get_queryset(self, **kwargs):
+                query = self.request.GET.get('q', None) 
+                return projectQueryOrNone(query);
 
         def get_context_data(self, **kwargs):
+                query = self.request.GET.get('q', None)                 
                 context = super(SearchListView, self).get_context_data(**kwargs)
-                context['profiles'] = profileQueryOrNone("M")
+                context['profiles'] = profileQueryOrNone(query)
                 
                 return context
 

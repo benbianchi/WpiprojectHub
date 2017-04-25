@@ -7,18 +7,22 @@
 <div class="row">
     
     <div class="mdl-grid mdl-shadow--4dp form-item">
+        <div class="mdl-cell--1-col form-icon form-icon-readonly"> <i class="material-icons">date_range</i></div>
+        <div class="mdl-cell--11-col">
         <h3 class="text-center">
         {% if project.projectBeginDate != None and project.projectEndDate != None %}
         Project Runs from {{ project.projectBeginDate }} to {{ project.projectEndDate }}
         {% else %}
         Project Posted at {{ project.postDate }}
         {% endif %}
+        
         </h3>
+        </div>
 </div>   
    <div class="mdl-grid mdl-shadow--4dp form-item">
 
 
-    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">title</i></div>
+    <div class="mdl-cell--1-col form-icon form-icon-readonly"> <i class="material-icons">title</i></div>
     <div class="mdl-cell--11-col">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <h4>{{ project.projectName }}</h4>
@@ -30,7 +34,7 @@
 
 <div class="mdl-grid mdl-shadow--4dp form-item">
 
-    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">label</i></div>
+    <div class="mdl-cell--1-col form-icon form-icon-readonly"> <i class="material-icons">label</i></div>
     <div class="mdl-cell--11-col">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <h4>{{ project.projectTagLine }}</h4>
@@ -42,7 +46,7 @@
 
 <div class="mdl-grid mdl-shadow--4dp form-item">
 
-    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">description</i></div>
+    <div class="mdl-cell--1-col form-icon form-icon-readonly"> <i class="material-icons">description</i></div>
     <div class="mdl-cell--11-col">
         <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
             <h4>{{ project.projectDescription }}</h4>
@@ -53,8 +57,9 @@
 
 
 <div class="mdl-grid mdl-shadow--4dp form-item">
-
-    <div class="mdl-cell mdl-cell--6-col">
+<div class="mdl-cell--1-col form-icon form-icon-readonly"> <i class="material-icons">stars</i></div>
+    <div class="mdl-cell mdl-cell--5-col">
+        
         <h4>Majors Required:</h4>
 
 
@@ -68,7 +73,7 @@
         {% endfor %}
     </div>
 
-    <div class="mdl-cell mdl-cell--6-col float-right">
+    <div class="mdl-cell mdl-cell--5-col float-right">
         <h4>Skills Required:</h4>
 
         {% for skill in project.projectSkills.all %}
@@ -87,7 +92,7 @@
 
 <div class="mdl-grid mdl-shadow--4dp form-item">
 
-    <div class="mdl-cell--1-col form-icon"> <i class="material-icons">access_time</i></div>
+    <div class="mdl-cell--1-col form-icon form-icon-readonly"> <i class="material-icons">access_time</i></div>
     <div class="mdl-cell--11-col">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <h4>{{project.projectDuration}}</h4>

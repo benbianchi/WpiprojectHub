@@ -129,13 +129,26 @@ height:200px;
 width: 200px;
 }
 
-.form-icon
-{
+.form-icon {
     padding-top: 20px;
+    background: rgba(128, 128, 128, 0.09);
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 30px;
+    margin-right: 10px;
 }
 
+.form-icon-readonly i{
+    position: relative;
+    top: 20%;
+}
 .form-item
 {
+    padding-left:0px;
+    padding-bottom:0px;
+    padding-top:0px;
     margin-top:20px;
 }
 
