@@ -163,7 +163,7 @@ width: 200px;
 {
     position: fixed;
     margin-top:30px;
-    margin-left: 100px ;
+    margin-left: 0px ;
 }
 
 .gutter-command{
@@ -172,7 +172,8 @@ width: 200px;
 
 .card-large,.mdl-dialog-bg
 {
-    width:480px;
+    margin-left:20%;
+    margin-right:20%;
 }
 .text-center{
     align-self: center;

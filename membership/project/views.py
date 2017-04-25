@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from django import forms
 from .models import Project, Skill, Major
+from membership.profile.models import Profile
 from .forms import ProjectForm, searchForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
@@ -49,6 +50,7 @@ class ProjectRead(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProjectRead, self).get_context_data(**kwargs)
+        context['profile'] = Profile.objects.get(user__exact=self.request.user)
         return context
 
 

@@ -35,7 +35,7 @@ class ProfileUpdate(UpdateView):
         return obj
 
     def get_success_url(self):
-        return reverse('profile', kwargs={"pk": self.object.id})
+        return reverse('profile', kwargs={"pk": self.object.user.id})
     
     def get_context_data(self, **kwargs):
         context = super(ProfileUpdate, self).get_context_data(**kwargs)

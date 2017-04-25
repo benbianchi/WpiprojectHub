@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Edit Profile</h3>
-<h4>{{ profile.user }} </h4>
+<h4 style="text-align:center">{{ profile.user }} </h4>
 <form method="post" class="mdl-form">
     {% csrf_token %}
 <div class="mdl-grid mdl-shadow--4dp form-item">
@@ -9,7 +9,7 @@
     <div class="mdl-cell--11-col">
         <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
             {{ form.bio }}
-            <label class="mdl-textfield__label" for="projectDescription">Project Description</label>
+            <label class="mdl-textfield__label" for="projectDescription">Bio:</label>
         </div>
     </div>
 </div>
