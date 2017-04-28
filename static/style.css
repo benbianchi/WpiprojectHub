@@ -138,6 +138,7 @@ width: 200px;
     padding-right: 10px;
     max-width: 30px;
     margin-right: 10px;
+    height: 100%;
 }
 
 .form-icon-readonly i{
@@ -146,9 +147,11 @@ width: 200px;
 }
 .form-item
 {
+
     padding-left:0px;
-    padding-bottom:0px;
+    padding-bottom:20px;
     padding-top:0px;
+    margin-bottom: 0px;
     margin-top:20px;
 }
 
@@ -172,6 +175,7 @@ width: 200px;
 
 .card-large,.mdl-dialog-bg
 {
+    padding-top: 15px;
     margin-left:20%;
     margin-right:20%;
 }

@@ -1,6 +1,5 @@
 from django import forms
 from .models import Skill, Major, Project
-
 class ProjectForm(forms.ModelForm):
     def __init__(self, project=None, *args, **kwargs):
         super(ProjectForm, self ).__init__(*args, **kwargs)

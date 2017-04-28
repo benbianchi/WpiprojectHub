@@ -2,9 +2,10 @@
 
     <div class="mdl-cell--1-col form-icon"> <i class="material-icons">title</i></div>
     <div class="mdl-cell--11-col">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {% if form.projectName.errors %} is-invalid {% endif %}">
             {{ form.projectName }}
             <label class="mdl-textfield__label" for="projectName">Project Name</label>
+            <span class="mdl-textfield__error"> {{form.errors.projectName}} </span>
         </div>
     </div>
 
@@ -14,9 +15,10 @@
 
     <div class="mdl-cell--1-col form-icon"> <i class="material-icons">label</i></div>
     <div class="mdl-cell--11-col">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {% if form.projectTagLine.errors %} is-invalid {% endif %}">
             {{ form.projectTagLine }}
             <label class="mdl-textfield__label" for="projectTagLines">Project Tag Line</label>
+            <span class="mdl-textfield__error"> {{form.errors.projectTagLine}} </span>
         </div>
     </div>
 </div>
@@ -26,9 +28,10 @@
 
     <div class="mdl-cell--1-col form-icon"> <i class="material-icons">description</i></div>
     <div class="mdl-cell--11-col">
-        <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
+        <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label {% if form.projectDescription.errors %} is-invalid {% endif %}">
             {{ form.projectDescription }}
             <label class="mdl-textfield__label" for="projectDescription">Project Description</label>
+            <span class="mdl-textfield__error"> {{form.errors.projectDescription}} </span>
         </div>
     </div>
 </div>
@@ -140,7 +143,7 @@
 </div>
 
 
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label  getmdl-select">
     <input name="projectEndDate_year" class="mdl-textfield__input" value="{{ form.projectBeginDate.value|date:"Y"|default_if_none:"2017 " }}" type="text" id="EndYear" readonly tabIndex="-1" />
     <label class="mdl-textfield__label" for="EndYear">Year</label>
     <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="EndYear" style="overflow-y:scroll; height:200px;">
@@ -159,13 +162,18 @@
 
 
 
-<div class="mdl-grid mdl-shadow--4dp form-item">
+<div class="mdl-grid mdl-shadow--4dp form-item" {% if form.projectDuration.errors %} style="height:100px;" {% endif %}>
 
     <div class="mdl-cell--1-col form-icon"> <i class="material-icons">access_time</i></div>
     <div class="mdl-cell--11-col">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {% if form.projectDuration.errors %} is-invalid {% endif %}">
+            
             {{form.projectDuration}}
+            
             <label class="mdl-textfield__label" for="projectDuration">Estimated Hours Per Week</label>
+            <span class="mdl-textfield__error force-include"> {{form.errors.projectDuration}} </span>
+        
         </div>
     </div>
 </div>
