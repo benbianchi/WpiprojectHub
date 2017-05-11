@@ -5,11 +5,23 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Major(models.Model):
+    """
+    Major is a model that is just a string, and represents a student's primary field of study
+
+    attrs:
+        MajorName: The name of the major.
+    """
     MajorName = models.CharField(max_length=100)
     def __str__ (self):
         return self.MajorName;
 
 class Skill(models.Model):
+    """
+    Skill is a model that is just a string, and represents a student's ability
+
+    attrs:
+        SkillName: The name of the skill.
+    """
     SkillName = models.CharField(max_length=100)
 
     def __str__ (self):
@@ -17,6 +29,21 @@ class Skill(models.Model):
 
 
 class Project(models.Model):
+    """
+    A Project is a model that advertises a job that can be completed.
+
+    attrs:
+        projectAuthor: The creator of the project
+        projectName: The title of the Project
+        projectTagLine: A short, one sentence description of the project
+        projectDescription: a detailed summary of the project
+        projectMajor: the majors that are needed by the project
+        projectSkills: the skills that are needed 
+        postDate: the day that the project was created
+        projectBeginDate: the date the project will be started
+        projectEndDate: the date the project will end.
+        projectDuration: how long the duration of the project is.
+    """
     projectAuthor = models.ForeignKey('auth.User')
     projectName= models.CharField(max_length=50)
     projectTagLine= models.CharField(max_length=100)

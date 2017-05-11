@@ -2,6 +2,12 @@ from django import forms
 from .models import Profile
 from membership.project.models import Skill, Major
 class ProfileForm(forms.ModelForm):
+    """ 
+        Profile Form is a django ModelForm that allows users to edit their
+        Skills, and Majors, and bio
+
+        The Model used is a Profile.
+    """
     def __init__(self, project=None, *args, **kwargs):
         super(ProfileForm, self ).__init__(*args, **kwargs) 
 

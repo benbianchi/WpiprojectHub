@@ -1,23 +1,15 @@
 from django import forms
 from .models import Skill, Major, Project
+
+
 class ProjectForm(forms.ModelForm):
+
+    """
+    Project Form is a form that allows a user to create and update a project.
+    """
     def __init__(self, project=None, *args, **kwargs):
         super(ProjectForm, self ).__init__(*args, **kwargs)
-
-    def clean(self):
-        cleaned_data = super(ProjectForm, self).clean()
-        print "cleaning"
-        print cleaned_data.get("projectName");
-        print cleaned_data.get("projectTagLine");
-        print cleaned_data.get("projectDescription");
-        print cleaned_data.get("projectSkills");
-        print cleaned_data.get("projectMajor");
-        print cleaned_data.get("projectBeginDate");
-        print cleaned_data.get("projectEndDate");
-        print cleaned_data.get("projectDuration");
     
- 
-
     class Meta:
         model = Project
         fields = ['projectName', 'projectTagLine', 'projectDescription', 'projectSkills', 'projectMajor', 'projectBeginDate', 'projectEndDate', 'projectDuration' ]   

@@ -19,7 +19,10 @@ from django.views.generic.edit import FormMixin
 
 
 class ManageProjectView(LoginRequiredMixin, ListView):
-
+    """
+    ManageProjectView is a view that requires the user to be logged in and is a Django.ListView
+    This view allows a user to see the projects that he has made.
+    """
     template_name='membership/manage.html'
     model = Project
     def get_queryset(self):
@@ -27,11 +30,17 @@ class ManageProjectView(LoginRequiredMixin, ListView):
         return qs.filter(projectAuthor__exact=self.request.user)
 
 class ProjectListView(ListView):
+    """
+    ProjectListView is a view that shows all projects sorted by project date.
+    """
     model = Project
     template_name = 'discover.html'
 
 
 class ProjectCreate(LoginRequiredMixin,CreateView):
+    """
+    ProjectCreate is a Django.CreateView which is the main way to generate a project.
+    """
     model = Project
     template_name = 'project/create.html'
     form_class = ProjectForm
@@ -44,28 +53,44 @@ class ProjectCreate(LoginRequiredMixin,CreateView):
 
 
 class ProjectRead(DetailView):
+    """
+    ProjetRead descends from Django.DetailView and allows users to read the attributes of a project.
+    """
     model = Project
 
     template_name = 'project/read.html'
 
     def get_context_data(self, **kwargs):
+        """
+        This function adds the profile of the user to the context of this view. We use this
+        in the card at the bottom of the view.
+        """
         context = super(ProjectRead, self).get_context_data(**kwargs)
         context['profile'] = Profile.objects.get(user__exact=self.request.user)
         return context
 
 
 class ProjectUpdate(LoginRequiredMixin,UpdateView):
+    """
+    ProjectUpdate is a Django.UpdateView that requires a user to be Logged in.
+    """
     model = Project
     template_name = 'project/update.html'
     form_class = ProjectForm
     
     def get_object(self, *args, **kwargs):
+        """
+        This function prevents a user who is not the author, from using this view.
+        """
         obj = super(ProjectUpdate, self).get_object(*args, **kwargs)
         if not obj.projectAuthor == self.request.user:
              raise PermissionDenied()
         return obj
 
     def get_success_url(self):
+        """
+        This function allows a succesful update to redirect to the read view of the project.
+        """
         return reverse('project_read', kwargs={"pk": self.object.id})
     
     def get_context_data(self, **kwargs):
@@ -75,6 +100,15 @@ class ProjectUpdate(LoginRequiredMixin,UpdateView):
 
 @login_required(login_url="/login/")
 def ProjectDelete(request,num):
+
+    def get_object(self, *args, **kwargs):
+        """
+        This function prevents a user from deleting another user's project.
+        """
+        obj = super(ProjectUpdate, self).get_object(*args, **kwargs)
+        if not obj.projectAuthor == self.request.user:
+             raise PermissionDenied()
+        return obj
 
     p = get_object_or_404(Project,pk=num);
     p.delete();

@@ -13,18 +13,22 @@ from .forms import ProfileForm
 from django.views.generic.detail import DetailView
 from django.http import Http404
 
-class ProfileRead(DetailView):
 
+class ProfileRead(DetailView):
+    """
+    ProfileRead is a view that descends from Django.DetailView.
+    Profile read allows a user to read the attributes of a profile.
+    """
     model = Profile
     template_name = 'membership/profile.html'
         
-    def get_context_data(self, **kwargs):
-        context = super(ProfileRead, self).get_context_data(**kwargs)
-        print context
-        return context
-
+   
 
 class ProfileUpdate(UpdateView):
+    """
+    ProfileUpdate is a view that descends from UpdateView  
+    This view allows the author of a Profile to edit and update old data with new values
+    """
     model = Profile
     template_name = 'membership/update.html'
     form_class = ProfileForm
@@ -35,6 +39,10 @@ class ProfileUpdate(UpdateView):
         return obj
 
     def get_success_url(self):
+        """
+        Without changing the success url this way, we can only redirect to a static url.
+        This allows us to redirect to the read page of the profile we have updated.
+        """
         return reverse('profile', kwargs={"pk": self.object.user.id})
     
     def get_context_data(self, **kwargs):
