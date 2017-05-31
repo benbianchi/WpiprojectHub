@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/benbianchi/WpiprojectHub/issues"
   },
-  "homepage": "https://github.com/benbianchi/WpiprojectHub#readme"
+  "homepage": "https://github.com/benbianchi/WpiprojectHub#readme",
+
+  "dependencies": {
+    "bower": "latest"
+  }
 }
