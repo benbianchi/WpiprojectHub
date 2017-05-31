@@ -1,0 +1,53 @@
+{
+  "name": "getmdl-select",
+  "description": "select component like native mdl menu",
+  "main": [
+    "getmdl-select.min.css",
+    "getmdl-select.min.js"
+  ],
+  "authors": [
+    "CreativeIT"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "material",
+    "mdl",
+    "getmdl",
+    "select",
+    "getmdl-select",
+    "dropdown",
+    "getmdl-dropdown"
+  ],
+  "homepage": "https://github.com/CreativeIT/getmdl-select",
+  "moduleType": [
+    "globals"
+  ],
+  "devDependencies": {
+    "bower": "^1.5.2",
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-babel": "^5.3.0"
+  },
+  "dependencies": {
+    "material-design-lite": "^1.0.4"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "fd25eb2ad3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "fd25eb2ad33b4aa4dd7088aa2bdc11698f440393"
+  },
+  "_source": "https://github.com/CreativeIT/getmdl-select.git",
+  "_target": "*",
+  "_originalSource": "getmdl-select"
+}
