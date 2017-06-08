@@ -37,7 +37,7 @@ class ProjectListView(ListView):
     template_name = 'discover.html'
 
 
-class ProjectCreate(LoginRequiredMixin,CreateView):
+class ProjectCreate(LoginRequiredMixin, CreateView):
     """
     ProjectCreate is a Django.CreateView which is the main way to generate a project.
     """
@@ -52,7 +52,7 @@ class ProjectCreate(LoginRequiredMixin,CreateView):
         return super(ProjectCreate, self).form_valid(form)
 
 
-class ProjectRead(DetailView):
+class ProjectRead(LoginRequiredMixin, DetailView):
     """
     ProjetRead descends from Django.DetailView and allows users to read the attributes of a project.
     """

@@ -82,4 +82,4 @@ Students/faculty can create account (authenticated by wpi.edu email), and can cr
 
 ### Get in touch
 
-[Nicholas Bradford](http://www.NicholasSBradford.com), [Ben Bianchi](https://github.com/benbianchi)
+[Nicholas Bradford](http://www.nicholasbradford.io), [Ben Bianchi](https://github.com/benbianchi)
