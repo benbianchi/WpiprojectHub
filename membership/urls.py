@@ -19,6 +19,7 @@ urlpatterns = [
     
     
     #Profile CRUD
+    url(r'^profile/None$', ProfileRead.as_view(), name="profile"),
     url(r'^profile/(?P<pk>[0-9]+)$', ProfileRead.as_view(), name="profile"),
     url(r'^profile/(?P<pk>[0-9]+)/edit$', ProfileUpdate.as_view(), name="profile_edit"),
     

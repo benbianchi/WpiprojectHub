@@ -12,9 +12,10 @@ from .models import Profile
 from .forms import ProfileForm
 from django.views.generic.detail import DetailView
 from django.http import Http404
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class ProfileRead(DetailView):
+class ProfileRead(LoginRequiredMixin, DetailView):
     """
     ProfileRead is a view that descends from Django.DetailView.
     Profile read allows a user to read the attributes of a profile.
