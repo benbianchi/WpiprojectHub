@@ -1,6 +1,23 @@
-"dependencies": {
-    "bower": "0.6.x"
-},
-"scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
+{
+  "name": "wpiprojecthub",
+  "version": "1.0.0",
+  "description": "Connect Students and Professors for Research Projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benbianchi/WpiprojectHub.git"
+  },
+  "author": "Ben Bianchi, Nicholas Bradford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benbianchi/WpiprojectHub/issues"
+  },
+  "homepage": "https://github.com/benbianchi/WpiprojectHub#readme",
+
+  "dependencies": {
+    "bower": "latest"
+  }
 }
