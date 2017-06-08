@@ -28,25 +28,25 @@ Run the server at **http://localhost:8000/** to view a development version of th
 
     /membership
         /migrations             Database migrations for Django
-        /profile                Everything about User profiles
-            forms.py            ? Form for creating user profile
-            models.py           ? User profile model
-            views.py            ? ProfileRead and ProfileUpdate
+        /profile                Everything about Profiles (associated 1-to-1 with a User)
+            forms.py            ProfileForm
+            models.py           Profile 
+            views.py            ProfileRead and ProfileUpdate
         /project                Everything about Projects
-            forms.py            ? ProjectForm
+            forms.py            ProjectForm and SearchForm
             models.py           Models for Major, Skill, Projecct
             views.py            Views for ManageProject, ProjectList, and CRUD
         admin.py                Register Project, Skill, Major models for Admin interface
-        apps.py                 ? MembershipConfig
-        forms.py                ? LoginForm
-        models.py               ? empty
-        tests.py                ? empty
+        apps.py                 MembershipConfig
+        forms.py                LoginForm
+        models.py               TODO empty
+        tests.py                TODO empty
         urls.py                 URLs for everything else
         views.py                Views for home, discover, and profile
     /projectHub                 Inner project with settings, urls, wsgi
         settings.py             Settings
-        urls.py                 ? URLs for admin, login, logout, accounts
-        wsgi.py                 ? Interface
+        urls.py                 URLs for admin, login, logout, accounts
+        wsgi.py                 Setup Web Server Gateway Interface (Python standard)
     /static                     Static things, of course
         /bower_components       Stuff for bower
         /img                    Static images
