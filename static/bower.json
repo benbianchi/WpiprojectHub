@@ -25,6 +25,7 @@
     "bootstrap": "^3.3.7",
     "material-design-lite": "^1.3.0",
     "getmdl-select": "*",
-    "material-modal": "^0.1.2"
+    "material-modal": "^0.1.2",
+    "particles.js": "^2.0.0"
   }
 }

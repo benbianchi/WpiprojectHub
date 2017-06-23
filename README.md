@@ -59,10 +59,6 @@ Run the server at **http://localhost:8000/** to view a development version of th
     Procfile                    Commands on Heroku
     requirements.txt            Python dependencies
 
-## Design
-
-* Font choice: Avenir [TODO migrate]
-* Color scheme: blue on white, with [TODO] accent.
 
 ## About
 
