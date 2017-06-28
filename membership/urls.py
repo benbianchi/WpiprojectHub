@@ -8,7 +8,7 @@ from membership.views import SearchListView
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^discover/$', ProjectListView.as_view(), name='discover'),
-    
+    url(r'^newhome$', views.newhome, name='newhome'),
 
     #Project CRUD
     # url(r'^project/$', views.projectHome, name='project'),

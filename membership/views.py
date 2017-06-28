@@ -59,6 +59,10 @@ class SearchListView(ListView):
 def home(request):
         return render(request, "home.html")
 
+
+def newhome(request):
+        return render(request, "newhome.html")
+
 @login_required(login_url="/login/")
 def discover(request):
         projects = Project.objects.filter().order_by('projectBeginDate')
