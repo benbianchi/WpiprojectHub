@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+
 
 
 class Major(models.Model):
@@ -44,7 +44,7 @@ class Project(models.Model):
         projectEndDate: the date the project will end.
         projectDuration: how long the duration of the project is.
     """
-    projectAuthor = models.ForeignKey('auth.User')
+    projectAuthor = models.ForeignKey('membership.PJUser',default=None)
     projectName= models.CharField(max_length=50)
     projectTagLine= models.CharField(max_length=100)
     projectDescription= models.TextField()

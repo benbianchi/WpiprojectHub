@@ -1,0 +1,49 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+<md-content>
+    
+        <md-list  layout="column" layout-align="center center">
+{% for proj in projects %}
+          <md-list-item layout="column" layout-align="center center" >
+              <div>
+            <md-card width="400">
+              <md-card-header>
+                <md-card-avatar>
+                </md-card-avatar>
+                <md-card-header-text>
+                  <span class="md-title"> {{ proj.projectAuthor }}</span>
+                  <!--<span class="md-subhead"> [[ NONE ]] </span>-->
+                </md-card-header-text>
+              </md-card-header>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline"> {{ proj.projectTitle }}</span>
+                  <span class="md-subhead">  {{ proj.projectTagLine }}</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="" layout-align="none begin">
+                <md-button href="/project/{{ project.id }}"
+                           id="button-id"
+                           class="md-primary"
+                           ng-disabled="false"
+                           md-ripple-size="full"
+                           md-no-ink="true"
+                           aria-label="View Project"> View </md-button>
+                <md-card-icon-actions>
+                  <md-button class="button-class" aria-label="label">
+                    Bookmark
+                  </md-button>
+                </md-card-icon-actions>
+              </md-card-actions>
+            </md-card>
+            </div>
+          </md-list-item>
+
+{% endfor %}
+        </md-list>
+</md-content>
+
+
+{% endblock %}

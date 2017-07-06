@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'membership'
 ]
 
@@ -130,5 +131,5 @@ LOGIN_REDIRECT_URL = '/' # It means home view
 
 ACCOUNT_ACTIVATION_DAYS=7
 
-
+AUTH_USER_MODEL= 'membership.PJUser'
 

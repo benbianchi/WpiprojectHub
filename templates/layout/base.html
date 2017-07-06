@@ -1,0 +1,85 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% block css %}
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% endblock %} 
+
+  {% block javascript %} 
+    <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  {% endblock %}
+  
+  {% block controllers %}
+  {% endblock %}
+</head>
+<body ng-app="BlankApp" ng-cloak>
+  <!--
+    Your HTML content here
+  -->  
+  
+
+  
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">    
+    /**
+     * You must include the dependency on 'ngMaterial' 
+     */
+    angular.module('BlankApp', ['ngMaterial']);
+
+    angular.module('BlankApp', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope) {
+
+});
+
+  </script>
+  
+  <div ng-controller="AppCtrl" ng-cloak>
+
+  <md-content>
+
+    
+
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+
+        <div flex><h1>Project Hub</h1></div>
+        
+        <div flex><md-button style="color:white;" href="/discover/"
+               id="button-id"
+               class="md-primary"
+               md-ripple-size="partial"
+               md-no-ink="true"
+               aria-label="Discover">Discover</md-button></div>
+        <div flex><md-button class="md-primary" style="color:white;">Post</md-button></div>
+        <div flex><md-button class="md-primary" style="color:white;">Manage</md-button></div>
+        <div flex><md-button class="md-primary" style="color:white;">About</md-button></div>
+        <div flex="1"><md-button class="md-primary" style="color:white;"> Login</md-button></div>
+        
+        
+      </div>
+      
+    </md-toolbar>
+
+  </md-content>
+  {% block content %}
+  {% endblock %}
+  
+</div>
+
+</body>
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at https://material.angularjs.org/license.
+-->
