@@ -4,8 +4,10 @@
 <html>
 
 <head>
-	<!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'bower_components/material-design-lite/material.min.css' %}">
 	<link rel="stylesheet" href="{% static 'newhome.css' %}">
+
+
 </head>
 
 <body>
@@ -13,20 +15,30 @@
 	<div id="particles-js"></div>
 
 	<div class="text-overlay">
-	  <h1>ProjectHub</h1>
+		<h1><font color="607D8B">PROJECT</font>HUB</h1>
+		<h2>We connect collaborators on everything, <br> from startups to academic projects to research.<h3>
+		<div class="mdl-grid">
+			<div class="mdl-layout-spacer">{% block left %} {% endblock %} </div>
+			<div class="mdl-cell mdl-cell--8-col">
+				<a href="/discover/">
+					<button class="banner-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					  Discover
+					</button>
+				</a>
+				<a href="/project/create">
+					<button class="banner-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					  Post
+					</button>
+				</a>
+			</div>
+			<div class="mdl-layout-spacer"></div>
+		</div>
 	</div>
 
+	<script src="{% static 'bower_components/material-design-lite/material.min.js' %}"></script>
+	<script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.js' %}"></script> 
 	<script src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
-    <!-- <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.js' %}"></script>  -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-	<!-- <script type="text/javascript" src="../static/bower_components/particles.js"></script> -->
+	<script type="text/javascript" src="{% static 'bower_components/particles.js/particles.js' %}"></script>
 	<script src="{% static 'app.js' %}"></script>
-
-	<!-- stats - count particles -->
-	<!-- <div class="count-particles">
-	  <span class="js-count-particles"></span> particles
-	</div> -->
-
-	<!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
 </body>
 </html>
